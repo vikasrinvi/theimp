@@ -1,6 +1,6 @@
 <template>
   <div class="container w-full">
-    <div class="flex w-full">
+    <div class="flex w-full mb-4">
       <input
         class="flex-grow border px-5 py-3 rounded-full m-2 -mr-2 rounded-r-none outline-none border-none text-gray-900"
         type="url"
