@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Link extends Model
 {
+    protected $fillable = ['url'];
+    protected $appends = ['shortenLink'];
+
     protected static function boot()
     {
         parent::boot();
@@ -15,8 +18,9 @@ class Link extends Model
         });
     }
 
-    public function getShortenLinkAttribute(){
-        return url('/'.$this->code);
+    public function getShortenLinkAttribute()
+    {
+        return url($this->code);
     }
 
     protected static function createUniqueCode()
@@ -34,6 +38,4 @@ class Link extends Model
 
         return substr(str_shuffle($characters), 0, 5);
     }
-
-    protected $fillable=['url'];
 }
