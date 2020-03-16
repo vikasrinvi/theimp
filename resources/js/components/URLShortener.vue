@@ -1,8 +1,8 @@
 <template>
-  <div class="container w-full">
+  <div class="w-full">
     <div class="flex w-full mb-4">
       <input
-        class="flex-grow border px-5 py-3 rounded-full m-2 -mr-2 rounded-r-none outline-none border-none text-gray-900"
+        class="flex-grow border pl-4 pr-2 md:px-5 py-3 rounded-full m-2 -mr-2 rounded-r-none outline-none border-none text-gray-900"
         type="url"
         name="url"
         id="url"
@@ -10,7 +10,7 @@
         v-model="url"
       />
       <input
-        class="cursor-pointer border px-5 py-3 rounded-full m-2 bg-blue-400 outline-none border-none text-gray-100 rounded-l-none"
+        class="cursor-pointer border px-2 md:px-5 py-3 rounded-full m-2 mr-2 bg-blue-400 outline-none border-none text-gray-100 rounded-l-none"
         type="submit"
         :value="canShorten ? 'Shorten' :'Wait'"
         :disabled="!canShorten"
@@ -41,7 +41,7 @@ export default {
       this.canShorten = false;
       this.canCopy = false;
       this.error = "";
-      
+
       axios
         .post("/links", { url: this.url })
         .then(response => {
